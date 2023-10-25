@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaseratiTCC.MainPage"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Background>
+        <RadialGradientBrush >
+            <GradientStopCollection>
+                <GradientStop Color="#0f9be8" Offset="0.0" />
+                <GradientStop Color="#544ba0" Offset="1.0" />
+            </GradientStopCollection>
+        </RadialGradientBrush>
+    </ContentPage.Background>
+
+
+    <StackLayout 
+        
+        Margin="16"
+        Padding="16" >
+
+        <Label Text="Serviços" TextColor="White" Padding="50,160,35,50" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Frame WidthRequest="75" HeightRequest="75" CornerRadius="50" Padding="0" Margin="290,-250,0,100">
+            <ImageButton Source="agatha.png" Aspect="AspectFill"/>
+        </Frame>
+        <StackLayout Orientation="Vertical">
+            <Grid>
+                <ImageButton x:Name="previousButton" Source="setaesquerda.png" HeightRequest="30"  WidthRequest="30" Margin="0,80,0,0" Clicked="OnPreviousButtonClicked" HorizontalOptions="Start"/>
+
+                <CarouselView x:Name="carouselView" Margin="0,80,0,0">
+                    <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>manicure.png</x:String>
+                            <x:String>salao.png</x:String>
+                            <x:String>barbearia.png</x:String>
+                        </x:Array>
+                    </CarouselView.ItemsSource>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageButton Source="{Binding}" Aspect="AspectFill" WidthRequest="250" HeightRequest="200" CornerRadius="40" HorizontalOptions="Center" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <ImageButton x:Name="nextButton" Source="setadireita.png" HeightRequest="30" WidthRequest="30" Margin="0,80,0,0" Clicked="OnNextButtonClicked" HorizontalOptions="End" />
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
